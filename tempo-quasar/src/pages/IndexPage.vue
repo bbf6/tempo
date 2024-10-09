@@ -3,7 +3,9 @@ q-page.flex.flex-center.column
   beat-mark
   beat-line
   bpm-selector
-  play-button
+  #actions
+    play-button
+    sound-button
 time-signature-selector
 </template>
 
@@ -13,4 +15,5 @@ import BeatLine from 'src/components/BeatLine'
 import BpmSelector from 'src/components/BpmSelector'
 import TimeSignatureSelector from 'src/components/TimeSignatureSelector'
 import PlayButton from 'src/components/PlayButton'
+import SoundButton from 'src/components/SoundButton'
 </script>

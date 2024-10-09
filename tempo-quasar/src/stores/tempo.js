@@ -8,7 +8,8 @@ export const useTempoStore = defineStore('tempo', {
     playing: false,
     colorToggled: false,
     mute: false,
-    bpmSelected: 50,
+    changeColor: true,
+    bpmSelected: 85,
     timeSignatures: times,
     timeSignatureSelected: times[2],
     currentBeat: 4,
@@ -43,7 +44,7 @@ export const useTempoStore = defineStore('tempo', {
     },
     tick () {
       if (!this.playing) return
-      Dark.toggle()
+      if (this.changeColor) Dark.toggle()
       this.currentBeat++
       if (this.currentBeat >= this.totalBeats)
         this.currentBeat = 0

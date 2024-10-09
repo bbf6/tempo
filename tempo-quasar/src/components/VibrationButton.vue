@@ -4,7 +4,7 @@ q-btn.q-mt-xl(
   :icon="icon"
   :color="$q.dark.isActive ? 'white' : 'dark'"
   :text-color="$q.dark.isActive ? 'dark' : 'white'"
-  @click="tempoStore.playing = !tempoStore.playing"
+  @click="tempoStore.changeVibration = !tempoStore.changeVibration"
 )
 </template>
 
@@ -16,5 +16,7 @@ import { useTempoStore } from 'src/stores/tempo'
 const $q = useQuasar()
 const tempoStore = useTempoStore()
 
-const icon = computed(() => tempoStore.playing ? 'pause' : 'play_arrow')
+const icon = computed(
+  () => tempoStore.changeVibration ? 'app_blocking' : 'vibration'
+)
 </script>

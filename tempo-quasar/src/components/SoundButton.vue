@@ -1,5 +1,6 @@
 <template lang="pug">
 q-btn.q-mt-xl(
+  size="lg"
   :icon="icon"
   :color="$q.dark.isActive ? 'white' : 'dark'"
   :text-color="$q.dark.isActive ? 'dark' : 'white'"
@@ -15,5 +16,5 @@ import { useTempoStore } from 'src/stores/tempo'
 const $q = useQuasar()
 const tempoStore = useTempoStore()
 
-const icon = computed(() => tempoStore.mute ? 'volume_off' : 'volume_up')
+const icon = computed(() => tempoStore.mute ? 'volume_up' : 'volume_off')
 </script>

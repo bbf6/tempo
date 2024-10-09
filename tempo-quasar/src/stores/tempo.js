@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { Dark } from 'quasar'
 import times from 'src/data/timeSignatures'
 import { play } from 'src/lib/sound'
+import { vibrate } from 'src/lib/vibrate'
 
 export const useTempoStore = defineStore('tempo', {
   state: () => ({
@@ -9,6 +10,7 @@ export const useTempoStore = defineStore('tempo', {
     colorToggled: false,
     mute: false,
     changeColor: true,
+    changeVibration: true,
     bpmSelected: 85,
     timeSignatures: times,
     timeSignatureSelected: times[2],
@@ -42,13 +44,14 @@ export const useTempoStore = defineStore('tempo', {
       this.currentBeat = this.totalBeats
       this.showTimeSignatureSelector = false
     },
-    tick () {
+    async tick () {
       if (!this.playing) return
       if (this.changeColor) Dark.toggle()
       this.currentBeat++
       if (this.currentBeat >= this.totalBeats)
         this.currentBeat = 0
       if (!this.mute) play(this.isCurrentStrongBeat)
+      if (this.changeVibration) await vibrate()
     }
   }
 })

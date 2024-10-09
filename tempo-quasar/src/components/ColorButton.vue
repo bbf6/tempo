@@ -1,5 +1,6 @@
 <template lang="pug">
 q-btn.q-mt-xl(
+  size="lg"
   :icon="icon"
   :color="$q.dark.isActive ? 'white' : 'dark'"
   :text-color="$q.dark.isActive ? 'dark' : 'white'"

@@ -1,0 +1,8 @@
+version: "3.8"
+
+services:
+  tempo:
+    build: .
+    container_name: tempo
+    ports:
+      - "8735:80"

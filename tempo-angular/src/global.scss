@@ -35,3 +35,131 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+$primary   : #1976D2;
+$secondary : #26A69A;
+$accent    : #9C27B0;
+
+$white     : white;
+$dark      : #1D1D1D;
+$dark-page : #121212;
+
+figure,
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+
+.ion-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.beat-mark-container {
+  position: relative;
+  margin-bottom: 20px;
+  height: 300px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  h1 {
+    color: $white;
+    font-size: 80px;
+  }
+  figure {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: $dark;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+.beat-line {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 90vw;
+  li {
+    background-color: $dark;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    margin: 10px;
+    &.big {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+.beat-line {
+  li {
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) rotateZ(135deg);
+    }
+    &.current {
+      &::before {
+        border: 10px solid $dark;
+        border-top-color: transparent;
+        border-right-color: transparent;
+      }
+    }
+  }
+}
+.bpm-selector {
+  margin-top: 40px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  label {
+    font-size: 20px;
+  }
+}
+.time-signature-selector {
+  width: 500px;
+}
+#actions {
+  display: flex;
+  gap: 10px;
+}
+.body--dark {
+  .beat-mark-container {
+    h1 {
+      color: $dark;
+    }
+    figure {
+      background-color: $white;
+    }
+  }
+  .beat-line {
+    li {
+      background-color: $white;
+    }
+  }
+  .beat-line {
+    li {
+      &.current {
+        &::before {
+          border-color: $white;
+          border-top-color: transparent;
+          border-right-color: transparent;
+        }
+      }
+    }
+  }
+}

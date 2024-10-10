@@ -1,0 +1,4 @@
+<div class="beat-mark-container" (click)="tempo.openSignatureSelection()">
+  <figure [ngClass]="{ 'beating': beating }"></figure>
+  <h1>{{ tempo.getTimeSignatureLabel() }}</h1>
+</div>

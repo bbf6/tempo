@@ -4,9 +4,10 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { BeatMarkComponent } from './beat-mark/beat-mark.component';
+import { BeatLineComponent } from './beat-line/beat-line.component';
 
 @NgModule({
-  declarations: [AppComponent, BeatMarkComponent],
+  declarations: [AppComponent, BeatMarkComponent, BeatLineComponent],
   imports: [BrowserModule, IonicModule.forRoot()],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

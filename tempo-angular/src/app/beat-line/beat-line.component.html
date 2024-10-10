@@ -1,0 +1,6 @@
+<ul class="beat-line">
+  <li
+    *ngFor="let beat of tempo.getBeats(); let index = index"
+    [ngClass]="{ 'big': beat, 'current': isCurrentBeat(index) }">
+  </li>
+</ul>

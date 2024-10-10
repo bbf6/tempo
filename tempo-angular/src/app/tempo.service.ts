@@ -18,47 +18,48 @@ export class TempoService {
   private currentBeat:number = 4;
   private showTimeSignatureSelector:boolean = false;
 
-  isPlaying():boolean { return this.playing }
-  togglePlaying():void { this.playing = !this.playing }
+  isPlaying():boolean { return this.playing; }
+  togglePlaying():void { this.playing = !this.playing; }
 
-  isColorToggled():boolean { return this.colorToggled }
-  toggleColor():void { this.colorToggled = !this.colorToggled }
+  isColorToggled():boolean { return this.colorToggled; }
+  toggleColor():void { this.colorToggled = !this.colorToggled; }
 
-  isMuted():boolean { return this.mute }
-  toggleMute():void { this.mute = !this.mute }
+  isMuted():boolean { return this.mute; }
+  toggleMute():void { this.mute = !this.mute; }
 
-  getBpm():number { return this.bpmSelected }
-  setBpm(value:number):void { this.bpmSelected = value }
-  getBpms():number { return 60 * 1000 / this.bpmSelected }
+  getBpm():number { return this.bpmSelected; }
+  setBpm(value:number):void { this.bpmSelected = value; }
+  getBpms():number { return 60 * 1000 / this.bpmSelected; }
 
-  getTimeSignatures():TimeSignature[] { return this.timeSignatures }
+  getTimeSignatures():TimeSignature[] { return this.timeSignatures; }
   getTimeSignaturesLabels():string[] {
-    return this.timeSignatures.map(t => t.label)
+    return this.timeSignatures.map(t => t.label);
   }
-  getTimeSignatureLabel():string { return this.timeSignatureSelected.label }
+  getTimeSignatureLabel():string { return this.timeSignatureSelected.label; }
 
-  getBeats():boolean[] { return this.timeSignatureSelected.beats }
-  getTotalBeats():number { return this.getBeats().length }
-  isCurrentStrongBeat():boolean { return this.getBeats()[this.currentBeat] }
+  getBeats():boolean[] { return this.timeSignatureSelected.beats; }
+  getTotalBeats():number { return this.getBeats().length; }
+  isCurrentStrongBeat():boolean { return this.getBeats()[this.currentBeat]; }
+  getCurrentBeat():number { return this.currentBeat; }
 
   openSignatureSelection():void {
-    this.showTimeSignatureSelector = true
+    this.showTimeSignatureSelector = true;
   }
 
   selectTimeSignature(time:string):void {
     const timeSignatureFound:TimeSignature = this.timeSignatures
-      .find(t => t.label === time) || this.timeSignatures[0]
-    this.timeSignatureSelected = timeSignatureFound
-    this.currentBeat = this.getTotalBeats()
-    this.showTimeSignatureSelector = false
+      .find(t => t.label === time) || this.timeSignatures[0];
+    this.timeSignatureSelected = timeSignatureFound;
+    this.currentBeat = this.getTotalBeats();
+    this.showTimeSignatureSelector = false;
   }
 
   async tick():Promise<void> {
-    if (!this.playing) return
+    if (!this.playing) return;
     // if (this.changeColor) Dark.toggle()
-    this.currentBeat++
+    this.currentBeat++;
     if (this.currentBeat >= this.getTotalBeats())
-      this.currentBeat = 0
-    if (!this.mute) play(this.isCurrentStrongBeat())
+      this.currentBeat = 0;
+    if (!this.mute) play(this.isCurrentStrongBeat());
   }
 }

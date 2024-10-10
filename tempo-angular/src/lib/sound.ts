@@ -1,10 +1,9 @@
 const getFileName = (strong:boolean):string =>
-  strong ? 'beat-ring.mp3' : 'beat.mp3'
+  strong ? 'src/assets/beat-ring.mp3' : 'src/assets/beat.mp3'
 
 const play = (strong:boolean):void => {
-  const fileName = getFileName(strong)
-  const audio = new Audio(fileName)
-  audio.play()
+  const audio = new Audio(getFileName(strong));
+  audio.play();
 }
 
 export { play };

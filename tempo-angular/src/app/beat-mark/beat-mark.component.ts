@@ -13,15 +13,13 @@ export class BeatMarkComponent  implements OnInit {
 
   constructor(tempo:TempoService) { this.tempo = tempo; }
 
-  ngOnInit() {
-    this.tick()
-  }
+  ngOnInit() { this.tick(); }
 
   async tick() {
-    if (this.tempo.isPlaying()) this.beating = !this.beating
-    this.tempo.tick()
-    await sleep(this.tempo.getBpms())
-    this.tick()
+    if (this.tempo.isPlaying()) this.beating = !this.beating;
+    this.tempo.tick();
+    await sleep(this.tempo.getBpms());
+    this.tick();
   }
 
 }

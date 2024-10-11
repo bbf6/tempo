@@ -19,10 +19,14 @@ export class ActionsComponent  implements OnInit {
     return this.tempo.isPlaying() ? 'pause' : 'play';
   }
 
+  darkMode():string {
+    return this.tempo.isColorToggled() ? '_dark' : ''
+  }
+
   getColorIcon():string {
-    return this.tempo.isColorToggled() ?
-      `${ICON_PATH}color_toggle.svg` :
-      `${ICON_PATH}color_toggle_cancel.svg`;
+    return this.tempo.isColorChanging() ?
+      `${ICON_PATH}color_toggle_cancel${this.darkMode()}.svg` :
+      `${ICON_PATH}color_toggle${this.darkMode()}.svg`;
   }
 
   getSoundIcon():string {
@@ -31,8 +35,8 @@ export class ActionsComponent  implements OnInit {
 
   getVibrationIcon():string {
     return this.tempo.isVibrating() ?
-      `${ICON_PATH}vibration_toggle.svg` :
-      `${ICON_PATH}vibration_toggle_cancel.svg`;
+      `${ICON_PATH}vibration_toggle_cancel${this.darkMode()}.svg` :
+      `${ICON_PATH}vibration_toggle${this.darkMode()}.svg`;
   }
 
 }

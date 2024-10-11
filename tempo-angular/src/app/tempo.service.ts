@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import times from 'src/data/timeSignatures';
 import { play } from 'src/lib/sound';
+import { toggleDarkMode } from 'src/lib/darkMode';
 import TimeSignature from 'src/interfaces/time.signature';
 
 @Injectable({
@@ -23,6 +24,9 @@ export class TempoService {
 
   isColorToggled():boolean { return this.colorToggled; }
   toggleColor():void { this.colorToggled = !this.colorToggled; }
+
+  isColorChanging():boolean { return this.changeColor; }
+  toggleColorChange():void { this.changeColor = !this.changeColor; }
 
   isMuted():boolean { return this.mute; }
   toggleMute():void { this.mute = !this.mute; }
@@ -65,10 +69,13 @@ export class TempoService {
 
   async tick():Promise<void> {
     if (!this.playing) return;
-    // if (this.changeColor) Dark.toggle()
+    if (this.changeColor) {
+      this.toggleColor();
+      toggleDarkMode();
+    }
     this.currentBeat++;
     if (this.currentBeat >= this.getTotalBeats())
       this.currentBeat = 0;
-    if (!this.mute) play(this.isCurrentStrongBeat());
+    // if (!this.mute) play(this.isCurrentStrongBeat());
   }
 }

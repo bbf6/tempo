@@ -7,7 +7,7 @@ import { sleep } from 'src/lib/time';
   templateUrl: './beat-mark.component.html',
   styleUrls: ['./beat-mark.component.scss']
 })
-export class BeatMarkComponent  implements OnInit {
+export class BeatMarkComponent implements OnInit {
   beating:boolean = false;
   tempo:TempoService;
 

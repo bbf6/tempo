@@ -76,6 +76,6 @@ export class TempoService {
     this.currentBeat++;
     if (this.currentBeat >= this.getTotalBeats())
       this.currentBeat = 0;
-    // if (!this.mute) play(this.isCurrentStrongBeat());
+    if (!this.mute) play(this.isCurrentStrongBeat());
   }
 }

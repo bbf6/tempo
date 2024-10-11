@@ -1,0 +1,11 @@
+<div class="bpm-selector">
+  <label>{{ tempo.getBpm() }} BPM</label>
+  <ion-range
+    id="bpm-range"
+    color="dark"
+    min="40"
+    max="208"
+    [value]="tempo.getBpm()"
+    (ionInput)="changeBpm($event)"
+  ></ion-range>
+</div>

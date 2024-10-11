@@ -5,6 +5,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { BeatMarkComponent } from './beat-mark/beat-mark.component';
 import { BeatLineComponent } from './beat-line/beat-line.component';
+import { BpmSelectorComponent } from './bpm-selector/bpm-selector.component';
 import { ActionsComponent } from './actions/actions.component';
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ActionsComponent } from './actions/actions.component';
     AppComponent,
     BeatMarkComponent,
     BeatLineComponent,
+    BpmSelectorComponent,
     ActionsComponent
   ],
   imports: [BrowserModule, IonicModule.forRoot()],

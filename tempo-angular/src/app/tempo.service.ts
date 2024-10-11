@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import times from 'src/data/timeSignatures';
 import { play } from 'src/lib/sound';
+import { vibrate } from 'src/lib/vibrate';
 import { toggleDarkMode } from 'src/lib/darkMode';
 import TimeSignature from 'src/interfaces/time.signature';
 
@@ -77,5 +78,6 @@ export class TempoService {
     if (this.currentBeat >= this.getTotalBeats())
       this.currentBeat = 0;
     if (!this.mute) play(this.isCurrentStrongBeat());
+    if (this.changeVibration) vibrate();
   }
 }

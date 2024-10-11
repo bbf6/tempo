@@ -27,6 +27,9 @@ export class TempoService {
   isMuted():boolean { return this.mute; }
   toggleMute():void { this.mute = !this.mute; }
 
+  isVibrating():boolean { return this.changeVibration; }
+  toggleVibration():void { this.changeVibration = !this.changeVibration; }
+
   getBpm():number { return this.bpmSelected; }
   setBpm(value:number):void { this.bpmSelected = value; }
   getBpms():number { return 60 * 1000 / this.bpmSelected; }

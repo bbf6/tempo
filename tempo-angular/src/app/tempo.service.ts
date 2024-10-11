@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import times from 'src/data/timeSignatures';
-import { play } from 'src/lib/sound'
-import TimeSignature from 'src/interfaces/time.signature'
+import { play } from 'src/lib/sound';
+import TimeSignature from 'src/interfaces/time.signature';
 
 @Injectable({
   providedIn: 'root'
@@ -45,8 +45,14 @@ export class TempoService {
   isCurrentStrongBeat():boolean { return this.getBeats()[this.currentBeat]; }
   getCurrentBeat():number { return this.currentBeat; }
 
+  isOpenTimeSignatureSelector():boolean {
+    return this.showTimeSignatureSelector;
+  }
   openSignatureSelection():void {
     this.showTimeSignatureSelector = true;
+  }
+  closeSignatureSelection():void {
+    this.showTimeSignatureSelector = false;
   }
 
   selectTimeSignature(time:string):void {

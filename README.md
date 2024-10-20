@@ -1,7 +1,7 @@
 # Tempo
 A metronome mobile app.
 
-This is a project to compare the difference between (quasar)[https://quasar.dev/], (ionic)[https://ionicframework.com/docs] and working directly on AndroidStudio.
+This is a project to compare the difference between [quasar](https://quasar.dev/), [ionic](https://ionicframework.com/docs) and working directly on AndroidStudio.
 
 Works with multiple time signatures, multiple bmps and and the beats can be audio, visual and vibration.
 

@@ -5,6 +5,8 @@ This is a project to compare the difference between [quasar](https://quasar.dev/
 
 Works with multiple time signatures, multiple bmps and and the beats can be audio, visual and vibration.
 
+You can see a web deployment version of this app on [https://tempo.devartiral.com](https://tempo.devartiral.com)
+
 ## Comparison
 
 ### Quasar
